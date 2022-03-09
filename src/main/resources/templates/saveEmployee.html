@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="/saveEmployee" method="post"; >
+    <h1>ADD EMPLOYEE</h1><br>
+
+    <input th:if="${employee!=null}" type="hidden"  th:value="${employee.id}">
+
+    Name: <input style="margin-top: auto" type="text" name="name"  th:value="${employee==null} ? '' : ${employee.name}">  <br>
+
+    Surname: <input style="margin-top: auto" type="text" name="surname"  th:value="${employee==null} ? '' : ${employee.surname}"> <br>
+
+    Email: <input style="margin-top: auto" type="text" name="email" th:value="${employee==null} ? '' : ${employee.email}"> <br>
+
+    Phone_Number: <input style="margin-top: auto" type="text" name="phoneNumber" th:value="${employee==null} ? '' : ${employee.phoneNumber}"> <br>
+
+    Salary: <input style="margin-top: auto" type="text" name="salary" th:value="${employee==null} ? '' : ${employee.salary}"> <br>
+
+    Position: <input style="margin-top: auto" type="text" name="position" th:value="${employee==null} ? '' : ${employee.position}"> <br>
+
+    Company: <select name="company.id" >
+        <option th:each="company: ${companies}" th:value="${company.id}" th:text="${company.name}"></option>
+    </select>
+
+
+
+    <input style="margin-top: auto" type="submit" value="save Employee">  </form>
+
+
+
+</body>
+</html>

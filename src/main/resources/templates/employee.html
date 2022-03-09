@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th style="border-style: solid; border-color: black"><h3>Name</h3></th>
+        <th style="border-style: solid; border-color: black"><h3>Surname</h3></th>
+        <th style="border-style: solid; border-color: black"><h3>email</h3></th>
+        <th style="border-style: solid; border-color: black"><h3>Phone_Number</h3></th>
+        <th style="border-style: solid; border-color: black"><h3>Salary</h3></th>
+        <th style="border-style: solid; border-color: black"><h3>Position</h3></th>
+        <th style="border-style: solid; border-color: black"><h3>Company</h3></th>
+        <th style="border-style: solid; border-color: black"><h3>Delete</h3></th>
+        <th style="border-style: solid; border-color: black"><h3>Edite</h3></th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr th:each=" employee: ${employees}">
+        <td style="border-style: solid; border-color: black" th:text="${employee.name}"></td>
+        <td style="border-style: solid; border-color: black" th:text="${employee.surname}"></td>
+        <td style="border-style: solid; border-color: black" th:text="${employee.email}"></td>
+        <td style="border-style: solid; border-color: black" th:text="${employee.phoneNumber}"></td>
+        <td style="border-style: solid; border-color: black" th:text="${employee.salary}"></td>
+        <td style="border-style: solid; border-color: black" th:text="${employee.position}"></td>
+        <td style="border-style: solid; border-color: black" th:text="${employee.getCompany().getName()}"></td>
+        <td style="border-style: solid; border-color: black"> <a th:href="@{'/deleteEmployee/'+${employee.id}}"><h4>delete</h4> </a></td>
+        <td style="border-style: solid; border-color: black"> <a th:href="@{'/editeEmployee/'+${employee.id}}"><h4>edit</h4> </a></td>
+
+    </tbody>
+</table>
+
+<form style="width: 200px; height: 200px; " action="/addEmployee" method="get">
+    <input type="submit" value="add Employee"></form>
+
+
+
+</body>
+</html>
